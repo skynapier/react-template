@@ -36,7 +36,7 @@ const App = () => {
   return (
     <>
       <CssBaseline />
-      <Router basename="/">
+      <Router basename="/React-Template">
         <div>
           <Container>
             <Header page={page} handlePageChange={handlePageChange}></Header>
