@@ -13,6 +13,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Customers from "./components/Customers";
 
+import HeaderAppBar from "./components/Header/HeaderAppBar";
+
 const App = () => {
 
     const routes = [
@@ -39,6 +41,7 @@ const App = () => {
       <Router basename="/">
         <div>
           <Container>
+            <HeaderAppBar></HeaderAppBar>
             <Header page={page} handlePageChange={handlePageChange}></Header>
           </Container>
           <Routes>
