@@ -4,32 +4,35 @@ import Tab from "@mui/material/Tab";
 import HouseIcon from "@mui/icons-material/House";
 import { Container, Grid, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
-import { Link } from "react-router-dom";
+import { Link,  useLocation } from "react-router-dom";
 
 
 
-const Header = ({page, handlePageChange, tabValue}) =>{
+const Header = ({routes}) =>{
 
-  console.log("check header page", page);
+  const currentPath = useLocation().pathname;
+
+  const matchingRoute = routes.find((route) => route.tab === currentPath);
+
   return (
     <Box sx={{ width: '100%' }}>
       <Tabs
-        value={page}
-        onChange={handlePageChange}
+        value={currentPath}
+        // onChange={handlePageChange}
         aria-label="wrapped label tabs example"
       >
         <Tab
-          value={0}
+          value={routes[0].tab}
           icon={<HouseIcon></HouseIcon>}
-          component={Link} to="/"
+          component={Link} to={routes[0].tab}
           wrapped
         />
-        <Tab value={1} 
+        <Tab value={routes[1].tab}
         label="About" 
-        component={Link} to="/About"
+        component={Link} to={routes[1].tab}
         />
-        <Tab value={2} label="Customers" 
-        component={Link} to="/Customers"/>
+        <Tab value={routes[2].tab} label="Customers" 
+        component={Link} to={routes[2].tab}/>
       </Tabs>
     </Box>
   );

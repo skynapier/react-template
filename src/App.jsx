@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { CssBaseline, Typography, Container } from "@mui/material";
 import {
-  BrowserRouter as Router,
+
+  HashRouter as Router,
   Route,
   Routes,
-  useNavigate,
 } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -13,25 +13,18 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Customers from "./components/Customers";
 
+import HeaderAppBar from "./components/Header/HeaderAppBar";
+
 const App = () => {
 
+    const homePagePath = process.env.REACT_APP_PUBLISH_URL;
+    console.log("homepagepath", homePagePath);
+
     const routes = [
-        {tab:"/", component: Home},
-        {tab:"/About", component: About},
-        {tab:"/Customers", component: Customers},
+        {tab:homePagePath+"/", component: Home},
+        {tab:homePagePath+"/About", component: About},
+        {tab:homePagePath+"/Customers", component: Customers},
     ]
-
-  const [page, setPage] = useState(0);
-  const tabValues = ["/", "/About", "/Customers"];
-  const componentValue = [Home, About, Customers];
-
-  const handlePageChange = (event, newValue) => {
-    console.log("handlePageChange was called ", newValue);
-    setPage(newValue);
-    console.log("page changed to ", page);
-  };
-
-  console.log(" test ", tabValues[0], page);
 
   return (
     <>
@@ -39,7 +32,7 @@ const App = () => {
       <Router basename="/">
         <div>
           <Container>
-            <Header page={page} handlePageChange={handlePageChange}></Header>
+            <HeaderAppBar routes={routes}></HeaderAppBar>
           </Container>
           <Routes>
             {routes.map( (item,index) =>{
@@ -49,7 +42,7 @@ const App = () => {
                     exact
                     key={item.tab}
                     path={item.tab}
-                    Component={componentValue[index]}
+                    Component={item.component }
                   ></Route>
                 )
             } )}
