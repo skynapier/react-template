@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
 import Customers from "./components/Customers";
+import Form from './components/Form';
 
 import HeaderAppBar from "./components/Header/HeaderAppBar";
 
@@ -45,6 +46,7 @@ const App = () => {
               );
             })}
           </Routes>
+          <Form></Form>
           <Footer></Footer>
         </Container>
       </Router>

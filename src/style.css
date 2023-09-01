@@ -10,6 +10,11 @@
     height: 100%;
 }
  
+.MuiTextField-root {
+  margin: 8px; /* Apply margin to all TextField components */
+}
+
+
   html,
   body {
     position: relative;
