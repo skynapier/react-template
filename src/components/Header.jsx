@@ -18,7 +18,6 @@ const Header = ({routes}) =>{
     <Box sx={{ width: '100%' }}>
       <Tabs
         value={currentPath}
-        // onChange={handlePageChange}
         aria-label="wrapped label tabs example"
       >
         <Tab

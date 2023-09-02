@@ -1,5 +1,13 @@
 import * as React from "react";
-import { Box, Input, Select, TextField, Divider, Button } from "@mui/material";
+import {
+  Box,
+  Input,
+  Select,
+  TextField,
+  Divider,
+  Button,
+  Grid,
+} from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import axios from "axios";
@@ -83,7 +91,6 @@ export default function Form() {
   const [note, setNote] = React.useState("Note");
 
   const handleFirstNameChange = (event) => {
-
     setFirstName(event.target.value);
   };
 
@@ -136,40 +143,47 @@ export default function Form() {
   };
 
   return (
-    <Box id="form" style={{ width: "48%" }}>
+    <Box id="form"  display='flex' justifyContent="center">
       <ThemeProvider theme={customTheme(outerTheme)}>
-        <TextField
-          id="standard-basic"
-          label="First Name"
-          variant="standard"
-          sx={{ width: "48%" }}
-          onChange={handleFirstNameChange}
-        />
-        <TextField
-          id="standard-basic"
-          label="Last Name"
-          variant="standard"
-          sx={{ width: "48%" }}
-          onChange={handleLastNameChange}
-        />
-
-        <TextField
+        <Grid container  maxWidth="70%" justifyContent="center" m={2} spacing={2}>
+          <Grid container item md={6}  maxWidth="70%">
+            <TextField
+              id="standard-basic"
+              label="First Name"
+              variant="standard"
+              sx={{ width: "100%" }}
+              onChange={handleFirstNameChange}
+            />
+          </Grid>
+          <Grid container item  md={6} maxWidth="70%">
+            <TextField
+              id="standard-basic"
+              label="Last Name"
+              variant="standard"
+              sx={{ width: "100%" }}
+              onChange={handleLastNameChange}
+            />
+          </Grid>
+          <Grid container item md={6}>
+          <TextField
           id="standard-basic"
           label="Email"
           variant="standard"
-          sx={{ width: "48%" }}
+          sx={{ width: "100%" }}
           onChange={handlEmailChange}
         />
-
-        <TextField
+          </Grid>
+          <Grid container item  md={6}>
+          <TextField
           id="standard-basic"
           label="Phone Number"
           variant="standard"
-          sx={{ width: "48%" }}
+          sx={{ width: "100%" }}
           onChange={handlPhoneChange}
         />
-
-        <TextField
+          </Grid>
+          <Grid container item  md={12}>
+          <TextField
           id="standard-basic"
           fullWidth
           multiline // Enable multiline input
@@ -178,10 +192,14 @@ export default function Form() {
           variant="standard"
           onChange={handleNoteChange}
         />
-
-        <Button variant="contained" sx={{ width: "100%" }} onClick={submit}>
+          </Grid>
+          <Grid container item  md={12}>
+          <Button variant="contained" sx={{ width: "100%" }} onClick={submit}>
           Contact Now!
         </Button>
+          </Grid>
+        </Grid>
+
       </ThemeProvider>
     </Box>
   );
