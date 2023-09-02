@@ -3,7 +3,7 @@ import { Typography, Container, Grid, Button, Box } from "@mui/material";
 
 const About = () => {
   return (
-    <Box maxHeight="100%" height="800px">
+    <Box maxHeight="100%" height="800px" >
       <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
         BYDH
       </Typography>

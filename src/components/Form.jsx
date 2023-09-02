@@ -143,7 +143,7 @@ export default function Form() {
   };
 
   return (
-    <Box id="form"  display='flex' justifyContent="center">
+    <Box id="form"  display='flex' justifyContent="center" >
       <ThemeProvider theme={customTheme(outerTheme)}>
         <Grid container  maxWidth="70%" justifyContent="center" m={2} spacing={2}>
           <Grid container item md={6}  maxWidth="70%">

@@ -1,17 +1,19 @@
 import React from "react";
-import { useState } from "react";
-import { CssBaseline, Typography, Container, Box } from "@mui/material";
+import {
+  CssBaseline,
+  Typography,
+  Container,
+  Box,
+  Divider,
+} from "@mui/material";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
 import Customers from "./components/Customers";
-import Form from './components/Form';
+import Form from "./components/Form";
 
 import HeaderAppBar from "./components/Header/HeaderAppBar";
-
-
 
 import "./style.css";
 
@@ -29,10 +31,8 @@ const App = () => {
     <>
       <CssBaseline />
       <Router basename="/">
-        <Container id="app" >
-          <Container>
-            <HeaderAppBar routes={routes}></HeaderAppBar>
-          </Container>
+        <Container id="app">
+          <HeaderAppBar routes={routes}></HeaderAppBar>
 
           <Routes>
             {routes.map((item, index) => {
@@ -47,6 +47,7 @@ const App = () => {
               );
             })}
           </Routes>
+          <Divider></Divider>
           <Form></Form>
           <Footer></Footer>
         </Container>
