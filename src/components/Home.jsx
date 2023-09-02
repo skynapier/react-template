@@ -11,12 +11,6 @@ import {
 import Innovation from "../resources/images/innovation.png";
 import Image1 from "../resources/images/image1.jpeg"
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-import "../style.css";
 
 const Home = () => {
   const [images, setImages] = React.useState([
